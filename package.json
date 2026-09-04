@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/nadiachouiref-commits/eco-bliss-bath-tests-v2#readme",
   "devDependencies": {
-    "cypress": "^16.0.0"
+    "cypress": "^16.0.0",
+    "typescript": "^7.0.2"
   }
 }
