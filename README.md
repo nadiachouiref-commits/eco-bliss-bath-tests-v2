@@ -1,40 +1,41 @@
-<div align="center">
+# Eco Bliss Bath — Tests Cypress
 
-# OpenClassrooms - Eco-Bliss-Bath
-</div>
+Ce dépôt contient les tests d'acceptation automatisés (Cypress) du site **Eco Bliss Bath**.
+Le code source du site (frontend Angular + backend Symfony) se trouve dans un dépôt séparé.
 
-<p align="center">
-    <img src="https://img.shields.io/badge/MariaDB-v11.7.2-blue">
-    <img src="https://img.shields.io/badge/Symfony-v6.2-blue">
-    <img src="https://img.shields.io/badge/Angular-v13.3.0-blue">
-    <img src="https://img.shields.io/badge/docker--build-passing-brightgreen">
-  <br><br><br>
-</p>
+## Prérequis
 
-# Prérequis
-Pour démarrer cet applicatif web vous devez avoir les outils suivants:
-- Docker
-- NodeJs
+- Node.js installé
+- Le site (frontend et backend) doit être lancé en local avant d'exécuter les tests
 
-# Installation et démarrage
-Clonez le projet pour le récupérer
-``` 
-git clone https://github.com/OpenClassrooms-Student-Center/Eco-Bliss-Bath-V2.git
-cd Eco-Bliss-Bath-V2
-```
-Pour démarrer l'API avec ça base de données.
-```
-docker compose up -d
-```
-# Pour démarrer le frontend de l'applicatif
-Rendez-vous dans le dossier frontend
-```
-cd ./frontend
-```
-Installez les dépendances du projet
-```
-npm i
-ou
-npm install (si vous préférez)
+## Installation
+
+```bash
+npm install
 ```
 
+## Lancer le site avant les tests
+
+Depuis le dépôt du site :
+
+```bash
+docker-compose up          # backend (Symfony) sur http://localhost:8081
+cd frontend && npm start   # frontend (Angular) sur http://localhost:4200
+```
+
+## Lancer les tests
+
+```bash
+npx cypress open   # interface graphique (mode développement)
+npx cypress run    # mode terminal / headless (ex. intégration continue)
+```
+
+## Structure des tests
+
+- `login.cy.ts` — connexion utilisateur
+- `panier.cy.ts` — ajout au panier
+- `api.cy.ts` — tests API (backend)
+- `smoke.cy.ts` — smoke tests
+- `xss.cy.ts` — sécurité (injection XSS)
+- `inscription.cy.ts` — création de compte
+- `stock.cy.ts` — règles de gestion du stock
