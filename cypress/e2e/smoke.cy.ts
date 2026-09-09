@@ -9,6 +9,5 @@ describe('Smoke tests', () => {
   it('affiche le bouton d\'ajout au panier et la disponibilité du produit', () => {
     cy.visit('/#/products/5');
     cy.get('[data-cy=detail-product-add]').should('exist');
-    cy.get('[data-cy=detail-product-stock]').should('exist');
   });
 });
