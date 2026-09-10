@@ -41,14 +41,18 @@ describe('Panier', () => {
     checkCartIsEmpty();
   });
 
-  it('refuse les quantités invalides (négative ou supérieure à 20)', () => {
-    const invalidQuantities = ['-1', '21'];
-    invalidQuantities.forEach((quantity) => {
-      cy.visit('/#/products/5');
-      cy.get('[data-cy=detail-product-quantity]').clear().type(quantity);
-      cy.get('[data-cy=detail-product-add]').click();
-      checkCartIsEmpty();
-    });
+  it('refuse une quantité négative', () => {
+    cy.visit('/#/products/5');
+    cy.get('[data-cy=detail-product-quantity]').clear().type('-1');
+    cy.get('[data-cy=detail-product-add]').click();
+    checkCartIsEmpty();
+  });
+
+  it('refuse une quantité supérieure à 20', () => {
+    cy.visit('/#/products/5');
+    cy.get('[data-cy=detail-product-quantity]').clear().type('21');
+    cy.get('[data-cy=detail-product-add]').click();
+    checkCartIsEmpty();
   });
 
   it('ajoute un produit disponible au panier', () => {
