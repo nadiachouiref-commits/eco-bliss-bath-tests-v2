@@ -36,4 +36,4 @@ npx cypress run    # mode terminal / headless (ex. intégration continue)
 - `api.cy.ts` — tests API (backend)
 - `smoke.cy.ts` — smoke tests
 - `xss.cy.ts` — sécurité (injection XSS)
-- `inscription.cy.ts` — création de compte
+- `register.cy.ts` — création de compte
