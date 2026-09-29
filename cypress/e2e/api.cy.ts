@@ -7,13 +7,13 @@ describe('Tests API', () => {
     });
   });
 
-  it('GET /orders sans connexion renvoie 401', () => {
+  it('GET /orders sans connexion renvoie 403', () => {
     cy.request({
       method: 'GET',
       url: 'http://localhost:8081/orders',
       failOnStatusCode: false
     }).then((response) => {
-      expect(response.status).to.eq(401);
+      expect(response.status).to.eq(403);
     });
   });
 
